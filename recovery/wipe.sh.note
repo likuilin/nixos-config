@@ -1,0 +1,4 @@
+note: make sure it is actually sda
+
+sudo hdparm --user-master u --security-set-pass p /dev/sda
+sudo hdparm --user-master u --security-erase-enhanced p /dev/sda
