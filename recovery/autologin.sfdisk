@@ -1,0 +1,9 @@
+label: gpt
+label-id: AFFA5B52-3B88-49B7-AD99-46227F503C45
+device: /dev/sda
+unit: sectors
+first-lba: 34
+last-lba: 500118158
+sector-size: 512
+
+/dev/sda1 : start=        4096, size=       65536, type=EBD0A0A2-B9E5-4433-87C0-68B6B72699C7, uuid=8A611331-5FA6-4B7B-BF34-1150C38AE36B, name="autologin"
