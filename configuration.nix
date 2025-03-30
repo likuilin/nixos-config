@@ -67,6 +67,9 @@
     initialPassword = "p";
   };
   users.motd = "welcome home, kuilin <3\n\n";
+  security.sudo.extraConfig = ''
+    Defaults lecture = never
+  '';
 
   services.displayManager.autoLogin = {enable = true; user = "kuilin";};
 
