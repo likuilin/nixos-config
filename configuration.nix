@@ -72,7 +72,6 @@
 
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  system.copySystemConfiguration = true;
 
   environment.systemPackages = with pkgs; [
     git
