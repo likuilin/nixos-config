@@ -60,7 +60,7 @@
 
   users.users.kuilin = {
     isNormalUser = true;
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
       kdePackages.kate
     ];
@@ -78,10 +78,14 @@
     gparted efibootmgr lshw
     nix-search-cli nix-index comma
     emacs tmux
-    wget
-    htop pv xxd file p7zip pstree
-    gnupg veracrypt openssl
+    wget dig
+    htop pv xxd file p7zip pstree killall
+    gnupg veracrypt openssl pinentry-curses
   ];
+  virtualisation.docker = {
+    enable = true;
+    daemon.settings.data-root = "/persist/var/lib/docker";
+  };
 
   environment.etc."machine-id".source
     = "/persist/etc/machine-id";
