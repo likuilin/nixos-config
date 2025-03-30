@@ -90,7 +90,10 @@
   environment.etc."machine-id".source
     = "/persist/etc/machine-id";
 
-  programs.gnupg.agent.enable = true;
+  programs.gnupg.agent = {
+    enable = true;
+    pinentryPackage = pkgs.pinentry-curses;
+  };
 
   services.openssh = {
     enable = true;
