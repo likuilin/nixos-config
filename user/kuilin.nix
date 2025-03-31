@@ -5,7 +5,17 @@
     isNormalUser = true;
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
-      kdePackages.kate
+      # cli
+      nix-search-cli nix-index comma
+
+      # gui
+      ungoogled-chromium
+
+      thunderbird
+      discord discord-canary discord-ptb
+
+      synergy
+      spotify
     ];
     initialPassword = "p";
   };
