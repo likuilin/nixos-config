@@ -3,10 +3,11 @@
 {
   users.users.kuilin = {
     isNormalUser = true;
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "adbusers" ];
     packages = with pkgs; [
       # cli
       nix-search-cli nix-index comma
+      scrcpy
 
       # gui
       ungoogled-chromium

@@ -32,4 +32,6 @@
     enable = true;
     pulse.enable = true;
   };
+
+  programs.adb.enable = true;
 }
