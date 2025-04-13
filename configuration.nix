@@ -10,6 +10,7 @@
       ./hardware.nix
       ./system/misc.nix
       ./system/network.nix
+      ./system/bluetooth.nix
       ./user/kuilin.nix
     ];
 
