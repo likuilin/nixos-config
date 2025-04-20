@@ -15,8 +15,11 @@
     settings = {
       PermitRootLogin = "no";
       PasswordAuthentication = false;
+      X11Forwarding = true;
     };
   };
+  programs.ssh.setXAuthLocation = true;
+
   environment.etc."ssh/ssh_host_rsa_key".source
     = "/persist/etc/ssh/ssh_host_rsa_key";
   environment.etc."ssh/ssh_host_rsa_key.pub".source
