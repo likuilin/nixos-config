@@ -6,10 +6,10 @@
 
   environment.systemPackages = with pkgs; [
     git
-    gparted efibootmgr lshw hdparm
+    gparted efibootmgr lshw hdparm smartmontools gptfdisk
     emacs tmux
     wget dig
-    htop pv xxd file p7zip pstree killall
+    htop iotop pv xxd file p7zip pstree killall
     gnupg veracrypt openssl pinentry-curses
   ];
   virtualisation.docker = {
