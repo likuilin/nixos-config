@@ -32,7 +32,7 @@
 
   systemd.services.customStartup = {
     script = ''
-      mkdir -p /mnt
+      mkdir -p /mnt/mnt /mnt/mnt2 /mnt/green-data
       shred /dev/disk/by-partlabel/autologin
     '';
     wantedBy = [ "local-fs.target" ];

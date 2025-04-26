@@ -6,7 +6,7 @@
 
   environment.systemPackages = with pkgs; [
     git
-    gparted efibootmgr lshw hdparm smartmontools gptfdisk
+    gparted efibootmgr lshw hdparm smartmontools gptfdisk parted
     emacs tmux
     wget dig
     htop iotop pv xxd file p7zip pstree killall
