@@ -5,12 +5,12 @@ NixOS is good :)
 ```
 [kuilin@kuilin-outb:~/nixos]$ lsblk -o name,size,fstype,label,partlabel,mountpoints
 NAME                SIZE FSTYPE      LABEL         PARTLABEL     MOUNTPOINTS
-sda               931.5G
-├─sda1              512M vfat                      recovery-boot
-├─sda2               32G ext4        recovery-root recovery-root
-└─sda3              899G ext4        recovery-data recovery-data
-sdb               238.5G
-└─sdb1               32M                           autologin
+sda               238.5G
+└─sda1               32M                           autologin
+sdb                 7.3T
+├─sdb1              512M vfat                      recovery-boot
+├─sdb2               32G ext4        recovery-root recovery-root
+└─sdb3              7.2T crypto_LUKS               green-crypt
 nvme0n1           931.5G
 ├─nvme0n1p1         512M vfat        BOOT          boot          /boot
 └─nvme0n1p2         931G crypto_LUKS               nixos
