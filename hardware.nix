@@ -66,7 +66,7 @@
     };
 
   fileSystems."/etc/nixos" =
-    { device = "/home/kuilin/nixos";
+    { device = "/home/kuilin/os/nixos";
       fsType = "none";
       options = [ "bind" ];
     };

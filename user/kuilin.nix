@@ -7,14 +7,17 @@
     packages = with pkgs; [
       # cli
       nix-search-cli nix-index comma
+
+      # mobile
       scrcpy
 
       # gui
-      ungoogled-chromium
+      firefox ungoogled-chromium
 
       thunderbird
       discord discord-canary discord-ptb
 
+      # daemon
       synergy
       spotify
     ];

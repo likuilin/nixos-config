@@ -9,7 +9,7 @@
     gparted efibootmgr lshw hdparm smartmontools gptfdisk parted
     emacs tmux
     wget dig
-    htop iotop pv xxd file p7zip pstree killall
+    htop iotop pv xxd file p7zip pstree killall tree
     gnupg veracrypt openssl pinentry-curses
   ];
   virtualisation.docker = {
@@ -34,4 +34,5 @@
   };
 
   programs.adb.enable = true;
+  programs.fish.enable = true;
 }
