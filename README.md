@@ -3,8 +3,8 @@
 NixOS is good :)
 
 ```
-[kuilin@kuilin-outb:~/nixos]$ lsblk -o name,size,fstype,label,partlabel,mountpoints
-NAME                SIZE FSTYPE      LABEL         PARTLABEL     MOUNTPOINTS
+kuilin@kuilin-outb ~/os/nixos (main)> lsblk -o name,size,fstype,label,partlabel,mountpoint
+NAME                SIZE FSTYPE      LABEL         PARTLABEL     MOUNTPOI
 sda               238.5G
 └─sda1               32M                           autologin
 sdb                 7.3T
@@ -19,5 +19,6 @@ nvme0n1           931.5G
     ├─vg-nix         32G ext4        nixos-nix                   /nix
     ├─vg-log         32G ext4        nixos-log                   /var/log
     ├─vg-persist     32G ext4        nixos-persist               /persist
-    └─vg-home        32G ext4        nixos-home                  /home
+    ├─vg-home        32G ext4        nixos-home                  /home
+    └─vg-crypt        1G crypto_LUKS
 ```
