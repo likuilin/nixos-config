@@ -35,6 +35,20 @@ if status is-interactive
         export (systemctl --user show-environment | grep -e ^XAUTHORITY= -e ^DISPLAY=)
     end
 
+    # have ctrl-c on empty line not do nothing
+    function custom_cancel
+        set -l cmd (commandline)
+        if test -n "$cmd"
+            commandline -f cancel-commandline
+        else
+            echo -s $__fish_cancel_text
+            commandline -f repaint
+        end
+    end
+    bind \cc custom_cancel
+    # run this once as $__fish_cancel_text may not exist otherwise?
+    __fish_cancel_commandline
+
     # abbrs
     abbr -a persist-check 'sudo du -x / | grep -v ^0'
     abbr -a dc 'docker compose'
