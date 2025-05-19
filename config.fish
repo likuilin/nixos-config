@@ -1,3 +1,5 @@
+# ln -s (realpath config.fish) ~/.config/fish/config.fish
+
 if status is-interactive
     # Commands to run in interactive sessions can go here
 

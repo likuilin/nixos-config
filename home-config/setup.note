@@ -1,2 +1,0 @@
-ln -s (realpath config.fish) ~/.config/fish/config.fish
-ln -s (realpath profile.sh) ~/.profile
