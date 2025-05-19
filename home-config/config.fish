@@ -28,6 +28,11 @@ if status is-interactive
 	end
     end
 
+    # copy host display env, but only if we're ssh and not x forwarding
+    if set -q SSH_CLIENT; and not set -q XAUTHORITY; and not set -q DISPLAY
+        export (systemctl --user show-environment | grep -e ^XAUTHORITY= -e ^DISPLAY=)
+    end
+
     # abbrs
     abbr -a persist-check 'sudo du -x / | grep -v ^0'
     abbr -a dc 'docker compose'

@@ -22,6 +22,7 @@
       spotify
     ];
     initialPassword = "p";
+    shell = pkgs.fish;
   };
   security.sudo.extraConfig = ''
     Defaults lecture = never
