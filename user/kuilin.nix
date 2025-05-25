@@ -7,6 +7,7 @@
     packages = with pkgs; [
       # cli
       nix-search-cli nix-index comma
+      reptyr
 
       # mobile
       scrcpy
