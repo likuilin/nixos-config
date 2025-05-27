@@ -1,7 +1,9 @@
-#!/usr/bin/env bash
+#!/usr/bin/env fish
 
-set -euxo pipefail
+function close
+  sudo umount /mnt/green-data; or return 1
+  sudo vgchange -an green; or return 1
+  sudo cryptsetup luksClose green-crypt; or return 1
+end
 
-sudo umount /mnt/green-data
-sudo vgchange -an green
-sudo cryptsetup luksClose green-crypt
+fish_trace=1 close
