@@ -8,9 +8,10 @@
   imports =
     [
       ./hardware.nix
-      ./system/misc.nix
+      ./system/desktop.nix
       ./system/network.nix
       ./system/bluetooth.nix
+      ./system/misc.nix
       ./user/kuilin.nix
     ];
 
