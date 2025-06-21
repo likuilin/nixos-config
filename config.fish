@@ -52,5 +52,11 @@ if status is-interactive
     # abbrs
     abbr -a persist-check 'sudo du -x / | grep -v ^0'
     abbr -a dc 'docker compose'
+    abbr -a dclf 'docker compose logs -f'
     abbr -a dps 'docker container ls -a --format "table {{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Size}}" | begin; sed -u 1q; sort -k2; end'
+
+    abbr -a dnode 'docker run --rm -it node:24-alpine3.20'
+    abbr -a dnodesh 'docker run --rm -it -v (pwd):/work -w /work node:24-alpine3.20 sh'
+    abbr -a dpy 'docker run --rm -it python:3.13.5-alpine3.21'
+    abbr -a dpysh 'docker run --rm -it -v (pwd):/work -w /work python:3.13.5-alpine3.21 sh'
 end
