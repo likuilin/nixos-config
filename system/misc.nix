@@ -23,4 +23,6 @@
   programs.fish.enable = true;
 
   services.orca.enable = true;
+
+  services.cron.enable = true;
 }

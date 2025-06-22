@@ -21,6 +21,7 @@
       # daemon
       synergy
       spotify
+      urlwatch
     ];
     initialPassword = "p";
     shell = pkgs.fish;
