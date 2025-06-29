@@ -17,7 +17,14 @@
     enable = true;
     daemon.settings.data-root = "/persist/var/lib/docker";
   };
+
   services.cron.enable = true;
+  fileSystems."/var/cron" =
+    { device = "/persist/var/cron";
+      fsType = "none";
+      options = [ "bind" ];
+    };
+
   # services.printing.enable = true;
 
   programs.fish.enable = true;
