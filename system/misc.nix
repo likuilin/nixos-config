@@ -11,18 +11,17 @@
     wget dig
     htop iotop pv xxd file p7zip pstree killall tree lsof
     gnupg veracrypt openssl pinentry-curses
+    moreutils
   ];
   virtualisation.docker = {
     enable = true;
     daemon.settings.data-root = "/persist/var/lib/docker";
   };
+  services.cron.enable = true;
+  # services.printing.enable = true;
 
-  services.printing.enable = true;
-
-  programs.adb.enable = true;
   programs.fish.enable = true;
 
+  programs.adb.enable = true;
   services.orca.enable = true;
-
-  services.cron.enable = true;
 }
