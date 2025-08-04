@@ -47,7 +47,7 @@
 
   fileSystems."/nix" =
     { device = "/dev/disk/by-label/nixos-nix";
-      fsType = "ext4";
+      fsType = "btrfs";
     };
 
   fileSystems."/boot" =
