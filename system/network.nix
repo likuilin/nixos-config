@@ -5,7 +5,7 @@
 
   services.tailscale.enable = true;
   fileSystems."/var/lib/tailscale" =
-    { device = "/persist/var/lib/tailscale";
+    { device = "/persist/tailscale";
       fsType = "none";
       options = [ "bind" ];
     };
@@ -21,13 +21,13 @@
   programs.ssh.setXAuthLocation = true;
 
   environment.etc."ssh/ssh_host_rsa_key".source
-    = "/persist/etc/ssh/ssh_host_rsa_key";
+    = "/persist/sshd/ssh_host_rsa_key";
   environment.etc."ssh/ssh_host_rsa_key.pub".source
-    = "/persist/etc/ssh/ssh_host_rsa_key.pub";
+    = "/persist/sshd/ssh_host_rsa_key.pub";
   environment.etc."ssh/ssh_host_ed25519_key".source
-    = "/persist/etc/ssh/ssh_host_ed25519_key";
+    = "/persist/sshd/ssh_host_ed25519_key";
   environment.etc."ssh/ssh_host_ed25519_key.pub".source
-    = "/persist/etc/ssh/ssh_host_ed25519_key.pub";
+    = "/persist/sshd/ssh_host_ed25519_key.pub";
 
   programs.gnupg.agent = {
     enable = true;

@@ -2,7 +2,7 @@
 
 {
   environment.etc."machine-id".source
-    = "/persist/etc/machine-id";
+    = "/persist/machine-id";
 
   environment.systemPackages = with pkgs; [
     git
@@ -10,17 +10,17 @@
     emacs tmux
     wget dig
     htop iotop pv xxd file p7zip pstree killall tree lsof
-    gnupg veracrypt openssl pinentry-curses
+    gnupg openssl pinentry-curses
     moreutils
   ];
   virtualisation.docker = {
     enable = true;
-    daemon.settings.data-root = "/persist/var/lib/docker";
+    daemon.settings.data-root = "/persist/docker";
   };
 
   services.cron.enable = true;
   fileSystems."/var/cron" =
-    { device = "/persist/var/cron";
+    { device = "/persist/cron";
       fsType = "none";
       options = [ "bind" ];
     };

@@ -13,18 +13,22 @@
   boot.extraModulePackages = [ ];
   boot.supportedFilesystems = [ "ntfs" ];
 
-  boot.loader.efi.canTouchEfiVariables = false;
   boot = {
     loader = {
       grub = {
         enable = true;
         device = "nodev";
         efiSupport = true;
+        fsIdentifier = "label";
+      };
+      efi = {
+        canTouchEfiVariables = false;
+        efiSysMountPoint = "/boot/efi";
       };
     };
 
     initrd.luks.devices.cryptroot = {
-      device = "/dev/disk/by-partlabel/nixos";
+      device = "/dev/disk/by-partlabel/root";
       keyFileSize = 4096;
       keyFile = "/dev/disk/by-partlabel/autologin"; # for remote login after reboot
       fallbackToPassword = true;
@@ -45,39 +49,54 @@
       options = [ "defaults" "size=16G" "mode=755" ];
     };
 
-  fileSystems."/nix" =
-    { device = "/dev/disk/by-label/nixos-nix";
+  fileSystems."/persist" =
+    { device = "/dev/disk/by-label/nixos";
       fsType = "btrfs";
+      neededForBoot = true;
+    };
+  fileSystems."/nix" =
+    { depends = [ "/persist" ]; device = "/persist/nix";
+      fsType = "none";
+      options = [ "bind" ]; neededForBoot = true;
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-label/BOOT";
+    { device = "/dev/disk/by-label/boot";
+      fsType = "btrfs";
+    };
+  fileSystems."/boot/efi" =
+    { device = "/dev/disk/by-label/EFI";
       fsType = "vfat";
       options = [ "fmask=0133" "dmask=0022" ];
     };
 
-  fileSystems."/var/log" =
-    { device = "/dev/disk/by-label/nixos-log";
-      fsType = "ext4";
-    };
-
   fileSystems."/home" =
-    { device = "/dev/disk/by-label/nixos-home";
-      fsType = "ext4";
-    };
-
-  fileSystems."/etc/nixos" =
-    { device = "/home/kuilin/os/nixos";
+    { depends = [ "/persist" ]; device = "/persist/home";
       fsType = "none";
       options = [ "bind" ];
     };
-
-  fileSystems."/persist" =
-    { device = "/dev/disk/by-label/nixos-persist";
-      fsType = "ext4";
+  fileSystems."/var/log" =
+    { depends = [ "/persist" ]; device = "/persist/log";
+      fsType = "none";
+      options = [ "bind" ];
+    };
+  fileSystems."/etc/nixos" =
+    { depends = [ "/home" ]; device = "/home/kuilin/os/nixos";
+      fsType = "none";
+      options = [ "bind" ];
+    };
+  fileSystems."/mnt/btrfsroot/nixos" =
+    { device = "/dev/vg/nixos";
+      fsType = "btrfs";
+      options = [ "subvolid=5" ];
+    };
+  fileSystems."/mnt/btrfsroot/boot" =
+    { device = "/dev/disk/by-label/boot";
+      fsType = "btrfs";
+      options = [ "subvolid=5" ];
     };
 
-  swapDevices = [ {device = "/dev/disk/by-label/nixos-swap";} ];
+  swapDevices = [ {device = "/dev/vg/swap";} ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
