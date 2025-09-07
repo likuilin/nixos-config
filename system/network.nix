@@ -2,6 +2,11 @@
 
 {
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  fileSystems."/etc/NetworkManager" =
+    { depends = ["/persist"]; device = "/persist/NetworkManager";
+      fsType = "none";
+      options = [ "bind" ];
+    };
 
   services.tailscale.enable = true;
   fileSystems."/var/lib/tailscale" =

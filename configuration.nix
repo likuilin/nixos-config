@@ -18,9 +18,7 @@
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  nixpkgs.overlays = [ (import ./overlays.nix) ];
-
-  networking.hostName = "kuilin-outb";
+  networking.hostName = "kuilin-f12";
   time.timeZone = "America/New_York";
 
   users.motd = "welcome home, kuilin <3\n\n";

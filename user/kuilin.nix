@@ -13,7 +13,7 @@
       scrcpy
 
       # gui
-      firefox ungoogled-chromium
+      firefox
 
       thunderbird
       discord discord-canary discord-ptb
@@ -22,6 +22,9 @@
       synergy
       spotify
       urlwatch
+
+      # tools
+      ffmpeg
     ];
     initialPassword = "p";
     shell = pkgs.fish;
