@@ -18,6 +18,8 @@
       thunderbird
       discord discord-canary discord-ptb
 
+      vlc
+
       # daemon
       synergy
       spotify
