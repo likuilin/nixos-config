@@ -12,6 +12,7 @@
       ./system/network.nix
       ./system/bluetooth.nix
       ./system/misc.nix
+      ./system/flatpak.nix
       ./user/kuilin.nix
     ];
 
