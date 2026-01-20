@@ -15,10 +15,11 @@
       # gui
       firefox
 
-      thunderbird
       discord discord-canary discord-ptb
 
       vlc
+
+      remmina
 
       # daemon
       synergy
