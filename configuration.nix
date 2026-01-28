@@ -20,7 +20,7 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   networking.hostName = "kuilin-f12";
-  time.timeZone = "America/Los_Angeles";
+  time.timeZone = "America/Chicago";
 
   users.motd = "welcome home, kuilin <3\n\n";
 
