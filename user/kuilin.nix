@@ -8,6 +8,8 @@
       # cli
       nix-search-cli nix-index comma
       reptyr
+      ffmpeg
+      sshfs
 
       # mobile
       scrcpy
@@ -25,9 +27,6 @@
       synergy
       spotify
       urlwatch
-
-      # tools
-      ffmpeg
     ];
     initialPassword = "p";
     shell = pkgs.fish;
